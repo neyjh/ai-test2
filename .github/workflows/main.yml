@@ -2,7 +2,7 @@ name: GPT-4 Code Revie
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, reopened, synchronize]
 
 permissions:
   pull-requests: write
