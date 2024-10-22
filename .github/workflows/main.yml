@@ -1,20 +1,25 @@
-name: GPT-4 Code Review
+name: GPT-4 Code Revie
+
+on:
+  pull_request:
+    branches:
+      - '*'
 
 permissions:
-  contents: read
   pull-requests: write
-
-on: # 언제 실행할지
-  pull_request: # PR이 올라오면
-    types: [ opened, reopened, synchronize ] # PR 생성 , 재생성 , 커밋같은 동기화 작업이 있을때
+  contents: read
 
 jobs:
-  test:
+  run_code_review:
     runs-on: ubuntu-latest
     steps:
-      - uses: anc95/ChatGPT-CodeReview@main
-        env:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Run GPT-4 Code Review
+        uses: anc95/ChatGPT-CodeReview@main
+        with:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          LANGUAGE: Korean
           MODEL: gpt-4
-          max_tokens: 10000
+          LANGUAGE: Korean
