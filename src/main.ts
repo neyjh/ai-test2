@@ -22,7 +22,7 @@ async function bootstrap() {
       process.exit(0);
     }
     const response = await gpt.chatWithGPT(input);
-    console.log('GPT-4 :', response);
+    console.log('GPT-4:', response);
   });
 }
 bootstrap();
