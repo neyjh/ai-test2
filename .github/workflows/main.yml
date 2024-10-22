@@ -1,9 +1,12 @@
 name: GPT-4 Code Review
 
-on:
-  pull_request:
-    branches:
-      - main
+permissions:
+  contents: read
+  pull-requests: write
+
+on: # 언제 실행할지
+  pull_request: # PR이 올라오면
+    types: [ opened, reopened, synchronize ] # PR 생성 , 재생성 , 커밋같은 동기화 작업이 있을때
 
 jobs:
   gpt_code_review:
@@ -19,3 +22,6 @@ jobs:
         node index.js
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        LANGUAGE: Korean
+        MODEL: gpt-3.5-turbo # 모델을 변경하면 다른 결과가 나온다. 비용도 다르기 때문에 주의 (https://platform.openai.com/docs/models)
+        max_tokens: 10000 #이번 리뷰에서 사용할 토큰의 최대 개수
