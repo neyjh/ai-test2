@@ -1,4 +1,4 @@
-import OpenAI from 'openai';
+const OpenAI = require('openai');
 const fs = require('fs');
 
 // OpenAI API 설정
