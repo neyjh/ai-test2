@@ -1,11 +1,10 @@
-const { Configuration, OpenAIApi } = require("openai");
+import OpenAI from 'openai';
 const fs = require('fs');
 
 // OpenAI API 설정
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,  // GitHub Secrets에서 불러온 API Key 사용
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
 });
-const openai = new OpenAIApi(configuration);
 
 // 코드 리뷰 수행
 async function reviewCode() {
