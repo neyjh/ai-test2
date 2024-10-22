@@ -21,9 +21,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        with:
-          model: 'gpt-4'
-          system_message: '당신은 코드 리뷰 전문가입니다. 모든 응답은 한국어로 작성해 주세요.'
-          language: 'Korean'
-          max_tokens: '1000'
-          prompt: '다음 코드를 한국어로 리뷰해 주세요. 코드의 품질, 가독성, 효율성, 그리고 모범 사례를 고려하여 평가해 주세요.'
+          LANGUAGE: Korean
+          MODEL: gpt-4
+          PROMPT: '당신은 훌륭한 시니어 소프트웨어 코드 리뷰 전문가입니다. 모든 응답은 한국어로 작성해 주세요.'
+          max_tokens: 10000
