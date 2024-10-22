@@ -24,7 +24,7 @@ async function reviewCode() {
   });
 
   console.log("Code Review Feedback:");
-  console.log(response.data.choices[0].text);  // GPT-4의 코드 리뷰 결과 출력
+  console.log(response.data.choices[0].text);  
 }
 
 reviewCode();
