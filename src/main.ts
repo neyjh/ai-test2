@@ -6,6 +6,8 @@ import { GptService } from './gpt.service';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(3003);
+  console.log('server is running on port 3003');
+  
 
   const gpt = app.get(GptService);
   
